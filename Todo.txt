@@ -2,6 +2,8 @@ sätta upp VUE - klar
 sätta upp flask - klar
 sätta upp DB - klar 
 
+För del med VUE tar en stund att sätta upp men sen blir det smidigare!
+
 koppla SQLLITE till flask - klar
 dela upp python kod i oika filer för enkel hantering - klar
 skapat router i vue - klar
@@ -15,7 +17,23 @@ skapa kod för att kunna "skapa" en profil och spara data -> skicka den till fla
 flask tar emor data - klart
 spara ner datan i databasen från flask -> sql - klar
 kryperat lösenord och dekrypterat lösenord - klart ---- måste komma på en bra lösning till email.
-Flask JWT https://flask-jwt-extended.readthedocs.io/en/stable/
+Flask JWT https://flask-jwt-extended.readthedocs.io/en/stable/ - klar
+Login logik med JWT - klar 
+Städa kod i main.py delar upp i fler filer för renare controllers - klar
+Laggt till delete - klar
+Laggt till update av lösen - klar
+
+
+Till söndag: 
+    Gränssnitt response måste bli mycket bättre
+    Försöka göra klart alla krav
+    Kolla på email krypterings problemet
+    Implementera data om användaren
+    CSS om jag hinner 
+
+
+
+
 
 
 

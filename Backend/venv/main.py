@@ -14,10 +14,11 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 
 import sqlite3
-import bcrypt 
+import bcrypt
 
-from database import get_db, query_db, saveUserProfileData
+from database import get_db, query_db, saveUserProfileData, updatePasswordBasedOnEmail, deleteAccountFromDB
 from queries import getAllUsers, getUserbasedOnEmail
+from login import loginLogic
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -36,39 +37,38 @@ def saveUserData():
 
 @app.route('/api/login', methods = ['POST'])
 def login():
-    email = request.json.get('email', None)
-    password = request.json.get('password', None)
+    if request.method == 'POST':
+        data = request.json
+        return loginLogic(data)
 
-    if not email: 
-        return 'Missing email', 400
-    if not password:
-        return 'Missing password', 400
-    
-    user = getUserbasedOnEmail(email)
-    if not user:
-        return 'User Not Found!', 404
-    
-    print('222222222222222')
-    print(password)
-    print(user['password'])
-    print(user)
-    print('222222222222222')
-
-    if bcrypt.checkpw(password.encode('utf-8'), user['password']):
-        access_token = create_access_token(identity={email: email, password: password})
-        return {"access_token": access_token}, 200
-    else:
-        return 'Wrong Password'
-
-    return 'Post ok'
-
+##This is where the magic happens, here we send a get request back to Vue. 
+# @jwt_required() locks down this api thus we need the access token in the access_token in the http request
 @app.route('/api/secreteData', methods = ['GET'])
-#When jwt is added we have secured the route
-@jwt_required
+@jwt_required()
 def identity():
-    user = get_jwt_identity
-    print(user)
-    return 'Secrete data', 200
+    if request.method == 'GET':
+        user = get_jwt_identity()
+        print(user)
+        return user, 200
+
+@app.route('/api/passwordChange', methods = ['POST'])
+def passwordChange():
+    if request.method == 'POST':
+        print(request.json)
+        email = request.json.get('email', None)
+        newPassword = request.json.get('password', None)
+        updatePasswordBasedOnEmail(newPassword, email)
+
+        return "Password is now updated"
+
+@app.route('/api/deleteAccount', methods = ['POST'])
+def deleteAccount():
+    if request.method == 'POST':
+        email = request.json.get('email1')
+        print("2222222")
+        print(email)
+        deleteAccountFromDB(email)
+        return "Account is now deleted"
 
 ##close_connection
 @app.teardown_appcontext

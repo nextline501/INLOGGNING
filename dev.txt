@@ -24,6 +24,9 @@ Flask
         $env:FLASK_APP = "main.py"
         flask run
 
+POSTMAN
+    för api calls
+
 DEV:
 
 VUE -> cd frontend -> cd "teknisk uppgift" -> npm run dev

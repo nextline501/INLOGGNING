@@ -29,6 +29,7 @@ def query_db(query, args=(), one=False):
     cur.close()
     return (rv[0] if rv else None) if one else rv
 
+
 ##Function that takes data from the endpoint and inserts the data in to the database
 def saveUserProfileData(data):
     print(data)
@@ -58,5 +59,41 @@ def saveUserProfileData(data):
     finally:
         con.close()
 
+def updatePasswordBasedOnEmail(newPassword, email):
+    print(newPassword)
 
+    ##Encrypt the new updated password
+    hashedPW = bcrypt.hashpw(newPassword.encode('utf-8'), bcrypt.gensalt())
+    
+    try:
+        user_password = hashedPW;
 
+        with sqlite3.connect(DATABASE) as con:
+            cur = con.cursor()
+            cur.execute( 'UPDATE users SET password = ? WHERE email = ?', (user_password, email) )
+            
+            con.commit()
+            msg = "Record successfully added"
+    except:
+        con.rollback()
+        msg = "error in insert operation"
+        print("something went wrong")
+    finally:
+        con.close()
+    
+def deleteAccountFromDB(email):
+    try:
+        user_email = email
+
+        with sqlite3.connect(DATABASE) as con:
+            cur = con.cursor()
+            cur.execute( 'DELETE FROM users WHERE email = ?', (user_email) )
+            
+            con.commit()
+            msg = "Record successfully added"
+    except:
+        con.rollback()
+        msg = "error in insert operation"
+        print("something went wrong")
+    finally:
+        con.close()

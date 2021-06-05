@@ -13,6 +13,14 @@ class DataService {
     getSecreteData() {
         return http.get("/secreteData")
     }
+
+    sendNewPassword(data){
+        return http.post("/passwordChange", data)
+    }
+
+    sendDeleteAccount(data){
+        return http.post("/deleteAccount", data)
+    }
 }
 
 export default new DataService();
