@@ -1,1 +1,30 @@
 INLOGGNING
+
+SET UP:
+
+VUE
+    cd "Frontend"
+    npm init @vitejs/app
+    cd Teknisk Uppgift
+    npm install 
+    npm run dev
+    npm install vue-router@4
+    npm install vuex@4
+    npm install axios
+
+Flask 
+    mkdir "Backend"
+    cd Backend
+    py -3 -m venv venv
+
+    activate env:
+        venv\Scripts\activate
+        pip install Flask
+        pip install flask-jwt-extended
+        $env:FLASK_APP = "main.py"
+        flask run
+
+DEV:
+
+VUE -> cd frontend -> cd "teknisk uppgift" -> npm run dev
+Flask -> cd Backend -> venv\Scripts\activate -> $env:FLASK_APP = "main.py" -> flask run

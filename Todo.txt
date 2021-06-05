@@ -1,0 +1,29 @@
+sätta upp VUE - klar
+sätta upp flask - klar
+sätta upp DB - klar 
+
+koppla SQLLITE till flask - klar
+dela upp python kod i oika filer för enkel hantering - klar
+skapat router i vue - klar
+skapa login page - klar
+skapa "secure page" som inte är säker ännu - klar
+skapa main page - klar
+laggt till router.js och store.js - klar 
+låst ner "secure.vue" route med Navigation Guards - klar
+Sätter upp Axios och tillhörande filer för http request - klar 
+skapa kod för att kunna "skapa" en profil och spara data -> skicka den till flask - klar
+flask tar emor data - klart
+spara ner datan i databasen från flask -> sql - klar
+kryperat lösenord och dekrypterat lösenord - klart ---- måste komma på en bra lösning till email.
+Flask JWT https://flask-jwt-extended.readthedocs.io/en/stable/
+
+
+
+
+
+
+
+
+
+
+
