@@ -5,13 +5,7 @@
             This is Main
         </p>
         <router-link to="/secure">
-            <button>secure</button>
-        </router-link>
-        <router-link to="/login">
-            <button>login</button>
-        </router-link>
-        <router-link to="/createAcc">
-            <button>Create Account</button>
+            <button class="btn btn-outline-secondary">Test link to Secure Page (should not work - login needed)</button>
         </router-link>
     </div>
 </template>

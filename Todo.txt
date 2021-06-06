@@ -4,34 +4,73 @@ sätta upp DB - klar
 
 För del med VUE tar en stund att sätta upp men sen blir det smidigare!
 
-koppla SQLLITE till flask - klar
-dela upp python kod i oika filer för enkel hantering - klar
-skapat router i vue - klar
-skapa login page - klar
-skapa "secure page" som inte är säker ännu - klar
-skapa main page - klar
-laggt till router.js och store.js - klar 
-låst ner "secure.vue" route med Navigation Guards - klar
-Sätter upp Axios och tillhörande filer för http request - klar 
-skapa kod för att kunna "skapa" en profil och spara data -> skicka den till flask - klar
-flask tar emor data - klart
-spara ner datan i databasen från flask -> sql - klar
-kryperat lösenord och dekrypterat lösenord - klart ---- måste komma på en bra lösning till email.
-Flask JWT https://flask-jwt-extended.readthedocs.io/en/stable/ - klar
-Login logik med JWT - klar 
-Städa kod i main.py delar upp i fler filer för renare controllers - klar
-Laggt till delete - klar
-Laggt till update av lösen - klar
+Jag försöker logga men lär missa en del momenet som jag gör.
 
+Lördag:
+    koppla SQLLITE till flask - klar
+    dela upp python kod i oika filer för enkel hantering - klar
+    skapat router i vue - klar
+    skapa login page - klar
+    skapa "secure page" som inte är säker ännu - klar
+    skapa main page - klar
+    laggt till router.js och store.js - klar 
+    låst ner "secure.vue" route med Navigation Guards - klar
+    Sätter upp Axios och tillhörande filer för http request - klar 
+    skapa kod för att kunna "skapa" en profil och spara data -> skicka den till flask - klar
+    flask tar emor data - klart
+    spara ner datan i databasen från flask -> sql - klar
+    kryperat lösenord och dekrypterat lösenord - klart ---- måste komma på en bra lösning till email.
+    Flask JWT https://flask-jwt-extended.readthedocs.io/en/stable/ - klar
+    Login logik med JWT - klar 
+    Städa kod i main.py delar upp i fler filer för renare controllers - klar
+    Laggt till CRUD delete - klar (ALLVARLIG BRIST I SYSTEMET: vem som helst kan ta bort och uppdatera lösenord)
+        Kritiskt problem löst med vuex store.. optimalt vore login cookies (men mycket säkrare nu, innan kunde vem som helst skriva till server)
+    Laggt till CRUD update av lösen - klar (ALLVARLIG BRIST I SYSTEMET: vem som helst kan ta bort och uppdatera lösenord)
+        Kritiskt problem löst med vuex store.. optimalt vore login cookies (men mycket säkrare nu, innan kunde vem som helst skriva till server)
 
 Till söndag: 
     Gränssnitt response måste bli mycket bättre
     Försöka göra klart alla krav
-    Kolla på email krypterings problemet
+    Kolla på email krypterings problemet 
     Implementera data om användaren
     CSS om jag hinner 
 
+Söndag:
+    löst delete query bugg
+    löst Kritiskt problem med UPDATE och DELETE (inte optimal lösning)
+    byggt klart def storeLoginData(data): så nu updateras "lastTimeLoggedIn" och "TimesLoggedIn" baserat på varje gång en användare loggar in
+    kunna "logga ut" - klar
+    typesafty logik när man skapar konto - klar
+        * följa domän mönster och lösenord
+    skapat knappar till att navigera genom routerna i VUE - klar
+    skapa reset password utanför safe route - 
+    fångar fel och varnar användaren om att de gjort något fel när de försöker logga in - klar
+    laggt till bootstrap och väldigt simple CSS. - klar
+    förbättrat response med altert(inte så elegant men gör jobbet) - klar 
+    förbättrat viss ux så man får bättre response på det man gör - klart
+    laggt till lösenords skydd även i "secure page" där man kan byta lösenordet - klar
+    byggt resetpassword component - klar (OBS DETTA ÄR MEST FÖR ATT HA NÅGOT DET ÄR VERKLIGEN INTE EN BRA LÖSNING) - klar
+    hamburgare meny är inte kodad ännu - 
 
+
+
+
+    
+
+
+
+Reflektion kring kort tidsintervall:
+    tradeoff mellan kvalitet/testing och mängden kod/features
+        - begrännsad testning
+        - ingen input från användare
+
+    Det briser och förbättringar som jag skulle gjort om jag hade mer tid:
+        - Session based auth med cookies
+        - Bygga ut så man faktiskt kan skicka reset länk med email (nu ligger den öppen)
+        - logga in med user names istället för email / krypera email i databasen (just nu är bara passwords kryperade)
+        - 
+     
+    
 
 
 

@@ -5,6 +5,7 @@ import Main from './components/Main.vue'
 import Login from './components/Login.vue'
 import Secure from './components/Secure.vue'
 import CreateAcc from './components/CreateAcc.vue'
+import ResetPassword from './components/ResetPassword.vue'
 import store from './store'
 
 // Routing to components
@@ -23,6 +24,11 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: Login
+    },
+    {
+        path: '/ResetPassword',
+        name: 'ResetPassword',
+        component: ResetPassword
     },
     {
         path: '/secure',

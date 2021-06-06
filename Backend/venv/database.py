@@ -87,7 +87,28 @@ def deleteAccountFromDB(email):
 
         with sqlite3.connect(DATABASE) as con:
             cur = con.cursor()
-            cur.execute( 'DELETE FROM users WHERE email = ?', (user_email) )
+            deletedRow = cur.execute( 'DELETE FROM users WHERE email = ?', (user_email,) )
+            
+            con.commit()
+            msg = "Record successfully added"
+    except:
+        con.rollback()
+        msg = "error in insert operation"
+        print("something went wrong")
+    finally:
+        con.close()
+
+def storeLoginData(data):
+    try:    
+        lastTimeLoggedIn = data['lastLoggedIn']
+        timesLoggedIn = data['timesLoggedIn']
+        user_email = data['email']
+
+        print(user_email, lastTimeLoggedIn, timesLoggedIn)
+
+        with sqlite3.connect(DATABASE) as con:
+            cur = con.cursor()
+            cur.execute( 'UPDATE users SET lastTimeLoggedIn = ?, timesLoggedIn = (timesLoggedIn + ?) WHERE email = ?', (lastTimeLoggedIn, timesLoggedIn, user_email) )
             
             con.commit()
             msg = "Record successfully added"

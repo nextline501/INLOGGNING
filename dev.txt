@@ -11,6 +11,7 @@ VUE
     npm install vue-router@4
     npm install vuex@4
     npm install axios
+    npm i bootstrap
 
 Flask 
     mkdir "Backend"

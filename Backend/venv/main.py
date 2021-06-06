@@ -6,10 +6,13 @@ from flask import jsonify
 
 ##create access function to create access token
 from flask_jwt_extended import create_access_token
+
 ##gives you give info inside the token
 from flask_jwt_extended import get_jwt_identity
+
 ##Decorator you put on routs, to protect the route
 from flask_jwt_extended import jwt_required
+
 ##Hold functions and callbacks
 from flask_jwt_extended import JWTManager
 
@@ -65,8 +68,6 @@ def passwordChange():
 def deleteAccount():
     if request.method == 'POST':
         email = request.json.get('email1')
-        print("2222222")
-        print(email)
         deleteAccountFromDB(email)
         return "Account is now deleted"
 
