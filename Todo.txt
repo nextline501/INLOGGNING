@@ -50,7 +50,7 @@ Söndag:
     förbättrat viss ux så man får bättre response på det man gör - klart
     laggt till lösenords skydd även i "secure page" där man kan byta lösenordet - klar
     byggt resetpassword component - klar (OBS DETTA ÄR MEST FÖR ATT HA NÅGOT DET ÄR VERKLIGEN INTE EN BRA LÖSNING) - klar
-    hamburgare meny är inte kodad ännu - 
+    hamburgare meny är inte kodad ännu https://bootstrap-vue.org/docs - 
 
 
 

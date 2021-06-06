@@ -12,6 +12,8 @@ VUE
     npm install vuex@4
     npm install axios
     npm i bootstrap
+    npm i @popperjs/core
+    npm install --save portal-vue
 
 Flask 
     mkdir "Backend"
